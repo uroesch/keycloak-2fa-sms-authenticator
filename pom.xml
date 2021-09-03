@@ -6,7 +6,7 @@
 
 	<groupId>dasniko</groupId>
 	<artifactId>keycloak-2fa-sms-authenticator</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.1-SNAPSHOT</version>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -19,6 +19,11 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>be.rufer.swisscom.sms</groupId>
+			<artifactId>api-client</artifactId>
+			<version>1.0</version>
+		</dependency>
 		<dependency>
 			<groupId>org.keycloak</groupId>
 			<artifactId>keycloak-server-spi-private</artifactId>
@@ -89,3 +94,5 @@
 	</build>
 
 </project>
+
+<!-- vim: set shiftwidth=2 tabstop=2 softtabstop=2 : -->
