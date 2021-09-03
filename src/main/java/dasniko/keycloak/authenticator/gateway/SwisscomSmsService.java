@@ -28,17 +28,7 @@ public class SwisscomSmsService implements SmsService {
 	@Override
 	public void send(String phoneNumber, String message) {
 		LOG.warn(String.format(messageFormat, phoneNumber, message));
-    /* 
-		Map<String, MessageAttributeValue> messageAttributes = new HashMap<>();
-		messageAttributes.put("AWS.SNS.SMS.SenderID",
-			MessageAttributeValue.builder().stringValue(senderId).dataType("String").build());
-		messageAttributes.put("AWS.SNS.SMS.SMSType",
-			MessageAttributeValue.builder().stringValue("Transactional").dataType("String").build());
-
-		sns.publish(builder -> builder
-			.message(message)
-			.phoneNumber(phoneNumber)
-			.messageAttributes(messageAttributes));
-			*/
+    SwisscomSmsSender smsSender = new SwisscomSmsSender("Foobar-Key", "+41792345678");
+    CommunicationWrapper response = smsSender.sendSms(message, phoneNumber);
 	}
 }
