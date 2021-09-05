@@ -20,15 +20,17 @@ public class SwisscomSmsService implements SmsService {
 	private static final String messageFormat = "***** SWISSCOM SIMULATION ***** Would send SMS to %s with text: %s";
 
 	private final String senderId;
+	private final String clientId;
 
 	SwisscomSmsService(Map<String, String> config) {
 		senderId = config.get("senderId");
+		clientId = config.get("clientId");
 	}
 
 	@Override
 	public void send(String phoneNumber, String message) {
 		LOG.warn(String.format(messageFormat, phoneNumber, message));
-    SwisscomSmsSender smsSender = new SwisscomSmsSender("Foobar-Key", "+41792345678");
+    SwisscomSmsSender smsSender = new SwisscomSmsSender(clientId, "+41792345678");
     CommunicationWrapper response = smsSender.sendSms(message, phoneNumber);
 	}
 }
