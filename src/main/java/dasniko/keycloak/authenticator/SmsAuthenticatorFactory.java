@@ -63,8 +63,10 @@ public class SmsAuthenticatorFactory implements AuthenticatorFactory {
 			new ProviderConfigProperty("length", "Code length", "The number of digits of the generated code.", ProviderConfigProperty.STRING_TYPE, 6),
 			new ProviderConfigProperty("ttl", "Time-to-live", "The time to live in seconds for the code to be valid.", ProviderConfigProperty.STRING_TYPE, "300"),
 			new ProviderConfigProperty("senderId", "Sender ID", "The sender ID is displayed as the message sender on the receiving device.", ProviderConfigProperty.STRING_TYPE, "Keycloak"),
-			new ProviderConfigProperty("clientId", "Client ID (Swisscom)", "Api key for sending SMS to Swisscom.", ProviderConfigProperty.PASSWORD, ""),
+			new ProviderConfigProperty("senderNumber", "Sender Number", "The sender number used to send the message, requires partner mode with Swisscom.", ProviderConfigProperty.STRING_TYPE, "+41791234567"),
+			new ProviderConfigProperty("clientId", "Client ID (Swisscom)", "Api key for sending SMS to Swisscom.", ProviderConfigProperty.PASSWORD, "") /*,
 			new ProviderConfigProperty("simulation", "Simulation mode", "In simulation mode, the SMS won't be sent, but printed to the server logs", ProviderConfigProperty.BOOLEAN_TYPE, true)
+			*/
 		);
 	}
 
